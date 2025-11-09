@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nehal Ansh Srivastava | Hydrosystems Engineering Researcher</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Slate 50 */
+        /* New Font Families */
+        :root {
+            /* Text/Body Font: Ibarra Real Nova (Serif) */
+            --font-body: 'Ibarra Real Nova', serif;
+            /* Header/Display Font: Gabarito (Sans-Serif) */
+            --font-header: 'Gabarito', sans-serif;
+            
+            /* New Color Scheme */
+            --color-background: #F7F3EC; /* Light, Creamy Background */
+            --color-primary-dark: #4F4C4C; /* Dark Brown/Gray Text and Primary Elements */
         }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-primary-dark); /* Set base text color */
+        }
+        
+        /* Apply Header Font to all Headings */
+        h1, h2, h3, h4 {
+            font-family: var(--font-header);
+        }
+
         .container-section {
             padding-top: 4rem;
             padding-bottom: 4rem;
@@ -23,23 +45,16 @@
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-[var(--color-primary-dark)]">
 
-    <!-- Header, Navigation, and Contact Info -->
-    <!-- PRIMARY COLOR CHANGE: bg-indigo-700 -> bg-[#212a31] -->
-    <header class="bg-[#212a31] text-white shadow-lg sticky top-0 z-20">
-        <!-- WIDENED CONTAINER: max-w-6xl -->
+    <header class="bg-[var(--color-primary-dark)] text-white shadow-lg sticky top-0 z-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Top Bar with Name and Contact -->
-            <!-- BORDER COLOR CHANGE: border-indigo-600 -> border-gray-600 -->
-            <div class="py-4 flex flex-col md:flex-row justify-between items-center border-b border-gray-600">
+            <div class="py-4 flex flex-col md:flex-row justify-between items-center border-b border-gray-500">
                 <div class="text-center md:text-left mb-2 md:mb-0">
-                    <!-- LARGER NAME FONT: text-3xl -->
-                    <h1 class="text-3xl font-extrabold tracking-tight">
+                    <h1 class="text-5xl font-extrabold tracking-tight">
                         Nehal Ansh Srivastava
                     </h1>
                 </div>
-                <!-- Contact/Social Links - PHONE NUMBER REMOVED -->
                 <div class="space-x-4 flex text-sm">
                     <a href="mailto:nsrivas7@asu.edu" class="hover:underline opacity-90 hover:opacity-100">Email</a>
                     <a href="https://www.linkedin.com/in/nehal-ansh-srivastava" target="_blank" class="hover:underline opacity-90 hover:opacity-100">LinkedIn</a>
@@ -47,7 +62,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Tabs - NEW TAB ADDED: Presentations -->
             <nav class="flex space-x-4 sm:space-x-8 text-lg font-light">
                 <a href="#about" class="tab-link py-3 px-1 transition duration-150 active" data-tab="tab-home" onclick="showTab(event, 'tab-home')">About Me</a>
                 <a href="#research" class="tab-link py-3 px-1 transition duration-150" data-tab="tab-research" onclick="showTab(event, 'tab-research')">Research</a>
@@ -57,24 +71,16 @@
         </div>
     </header>
 
-    <!-- WIDENED CONTAINER: max-w-6xl -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Tab 1: About Me Content -->
         <div id="tab-home" class="tab-content">
-            <!-- LARGER HEADING FONT: text-4xl -->
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[#212a31]">About Me</h2>
+            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">About Me</h2>
 
-            <!-- About Section - HEADING CHANGE: About Me -> Overview -->
             <section id="about" class="container-section border-b border-gray-200">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Overview</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Overview</h3>
                 
-                <!-- Container for Image and Text -->
                 <div class="flex flex-col md:flex-row md:space-x-8">
-                    <!-- Image Column -->
                     <div class="md:w-1/4 mb-6 md:mb-0 flex justify-center">
-                        <!-- NOTE TO USER: Replace the 'src' below with the public link to your actual photo when deploying the site. -->
                         <img 
                             src="https://webapp4.asu.edu/photo-ws/directory_photo/nsrivas7?size=medium&break=1761171068&blankImage2=1" 
                             alt="Nehal Ansh Srivastava Professional Headshot"
@@ -83,7 +89,6 @@
                         >
                     </div>
 
-                    <!-- Text Column - UPDATED DESCRIPTION -->
                     <div class="md:w-3/4 text-xl leading-relaxed space-y-5">
                         <p>
                             I am a Ph.D. candidate in the School of Sustainable Engineering and the Built Environment at Arizona State University (ASU) specializing in Hydrosystems Engineering. My research focuses on different aspects of urban hydrology ranging from climate to infrastructure. It addresses a fundamental challenge in urban resilience: understanding how extreme weather events propagate through interconnected infrastructure systems that were designed to operate independently.
@@ -100,39 +105,31 @@
                 </div>
             </section>
 
-            <!-- Skills Section -->
             <section id="skills" class="container-section border-b border-gray-200">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Skills & Technologies</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Skills & Technologies</h3>
                 
                 <div class="flex flex-wrap gap-3">
-                    <!-- SKILL TAG COLOR CHANGE: bg-indigo-100 text-indigo-800 -> bg-gray-200 text-[#212a31] -->
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Python</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">SWMM</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">PyPSA</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">MATLAB, R</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Cascading Failure Modeling</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Hydrologic-Hydraulic Modeling</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Statistical Modeling (L-moments, Kriging)</span>
-                    <span class="bg-gray-210 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Synthetic Spatiotemporal Storm Generation</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Machine Learning Algorithms</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Radar QPE Processing</span>
-                    <span class="bg-gray-200 text-[#212a31] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Resilience (Fail-Safe & Safe-to-Fail)</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Python</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">SWMM</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">PyPSA</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">MATLAB, R</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Cascading Failure Modeling</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Hydrologic-Hydraulic Modeling</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Statistical Modeling (L-moments, Kriging)</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Synthetic Spatiotemporal Storm Generation</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Machine Learning Algorithms</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Radar QPE Processing</span>
+                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Resilience (Fail-Safe & Safe-to-Fail)</span>
                 </div>
             </section>
         </div>
 
-        <!-- Tab 2: Research Content (Hidden by default) -->
         <div id="tab-research" class="tab-content hidden">
-            <!-- LARGER HEADING FONT: text-4xl -->
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[#212a31]">Research</h2>
+            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">Research</h2>
 
-            <!-- Publications Section - ORDER REVERSED -->
             <section id="publications" class="container-section border-b border-gray-200">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Publications</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Publications</h3>
 
-                <!-- Publication Tile -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Optimizing Infrastructure Resilience Strategies for Storm-Vulnerable Systems</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mikhail Chester, Mattheus Porto, and Giuseppe Mascaro</p>
@@ -144,7 +141,6 @@
                     </p>
                 </div>
 
-                <!-- Publication  -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Importance of High-Resolution Wind Gust Modeling to Improve Urban Flood Risk Assessment</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mikhail Chester, and Giuseppe Mascaro</p>
@@ -156,7 +152,6 @@
                     </p>
                 </div>
                 
-                <!-- Publication Tile 4 (New Top) -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Expanding infrastructure resilience horizons: Safe-to-Fail and Social-Ecological-Technological dynamics for requisite variety</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: Mattheus Porto, Mikhail Chester, Yeowon Kim, Giuseppe Mascaro, <span class="font-bold"><u>Nehal Ansh Srivastava</u></span></p>
@@ -168,7 +163,6 @@
                     </p>
                 </div>
 
-                <!-- Publication Tile 3 -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">A coupled stormwater-power model for the simulation of cascading infrastructure failures: An application in Phoenix, AZ</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
@@ -180,7 +174,6 @@
                     </p>
                 </div>
 
-                <!-- Publication Tile 2 -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Changing boundaries, distributed control, and implications for transportation sustainability</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: Eleanor M. Hennessy, J. Robert Wolfinbarger, Irfan Batur, <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mattheus Porto, Gabriel I. Cotlier, Madison Horgan, Ian Searles, Ryan M. Sparks & Mikhail V. Chester</p>
@@ -193,7 +186,6 @@
                     </p>
                 </div>
 
-                <!-- Publication Tile 1 (New Bottom) -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Improving the utility of weather radar for the spatial frequency analysis of extreme precipitation</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro</p>
@@ -208,12 +200,9 @@
 
             </section>
             
-            <!-- Projects Section - Removed border-b as it is now the last main content section in this tab -->
             <section id="projects" class="container-section">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Additional Research & Projects</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Additional Research & Projects</h3>
 
-                <!-- Project Item 1: Uncertainty Analysis -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Uncertainty Analysis of Performance of Stormwater Infrastructure</h4>
                     <p class="text-gray-700 leading-relaxed mb-3">
@@ -221,7 +210,6 @@
                     </p>
                 </div>
 
-                <!-- Project Item 2: Floodplain Accuracy -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Analysis of Floodplain Accuracy using Remotely Sensed Data</h4>
                     <p class="text-gray-700 leading-relaxed mb-3">
@@ -229,7 +217,6 @@
                     </p>
                 </div>
                 
-                <!-- Project Item 3: Impact of Urbanization -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Analysis of Impact of Urbanization on Runoff Generation</h4>
                     <p class="text-gray-700 leading-relaxed mb-3">
@@ -237,7 +224,6 @@
                     </p>
                 </div>
                 
-                <!-- Project Item 4: MATLAB Software -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">MATLAB Software Development to Analyze Aquifer Characteristics</h4>
                     <p class="text-700 leading-relaxed mb-3">
@@ -247,17 +233,12 @@
             </section>
         </div>
         
-        <!-- Tab 3: Presentations Content (Hidden by default) -->
         <div id="tab-presentations" class="tab-content hidden">
-            <!-- LARGER HEADING FONT: text-4xl -->
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[#212a31]">Presentations</h2>
+            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">Presentations</h2>
 
-            <!-- Conference Presentations Section -->
             <section id="conference-presentations" class="container-section border-b border-gray-200">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Conference Presentations</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Conference Presentations</h3>
                 
-                <!-- Presentation 2 (ASU Flow 2025)  -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">High-Resolution Climate Modeling to Improve Urban Flood Risk Assessment.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
@@ -267,7 +248,6 @@
                     </p>
                 </div>
 
-                <!-- Presentation 2 (ASU Flow 2025)  -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Modeling Cascading Failures of Coupled Stormwater and Power Urban Infrastructure: An Application in Phoenix, AZ.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
@@ -277,7 +257,6 @@
                     </p>
                 </div>
                 
-                <!-- Presentation 2 (AGU Dec 2024) - MOVED TO TOP -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">A Modeling Framework of Cascading Failures in Stormwater and Power Urban Infrastructure: An Application in Phoenix, AZ.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
@@ -287,7 +266,6 @@
                     </p>
                 </div>
 
-                <!-- Presentation 2 (ASU Flow 2024)  -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">A coupled stormwater-power model simulating cascading infrastructure failures: An application in Phoenix, AZ.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
@@ -297,7 +275,6 @@
                     </p>
                 </div>
                 
-                <!-- Presentation 1 (ASCE-ASHE Oct 2024 - Now second) -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">A Novel Framework for Simulating Cascading Impacts in Stormwater and Power Infrastructure Systems: An Application in Phoenix, AZ.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
@@ -307,7 +284,6 @@
                     </p>
                 </div>
 
-                <!-- Presentation 2 (ASU Flow 2023)  -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Improving the utility of weather radar for the spatial frequency analysis of extreme precipitation</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro</p>
@@ -317,7 +293,6 @@
                     </p>
                 </div>
 
-                <!-- Presentation 3 (Oct 2022) -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Spatial frequency analysis of extreme precipitation using weather radars to improve frequency analysis of extreme precipitation.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro</p>
@@ -327,7 +302,6 @@
                     </p>
                 </div>
 
-                <!-- Presentation 4 (May 2022) -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Can Radar Quantitative Precipitation Estimates Reproduce Extreme Precipitation Statistics in Central Arizona?</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro</p>
@@ -338,7 +312,6 @@
                     </p>
                 </div>
 
-                <!-- Presentation 5 (Dec 2021) -->
                 <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Utility of Radar Quantitative Precipitation Estimates for the Statistical Characterization of Extreme Precipitation in Central Arizona.</h4>
                     <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro</p>
@@ -351,56 +324,43 @@
         </div>
 
         
-        <!-- Tab 4: Education Content (Hidden by default) -->
         <div id="tab-academia" class="tab-content hidden">
-            <!-- LARGER HEADING FONT: text-4xl -->
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[#212a31]">Education</h2>
+            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">Education</h2>
 
-            <!-- Education Section - REMOVED redundant H3 subheading "Education" -->
             <section id="education" class="container-section border-b border-gray-200">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Academic History</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Academic History</h3>
                 
-                <!-- Education Item 1: PhD -->
                 <div class="mb-6 p-6 bg-white rounded-xl shadow-md">
                     <div class="flex justify-between items-start mb-2">
                         <h4 class="text-xl font-semibold text-gray-900">Ph.D. Civil, Environmental and Sustainable Engineering</h4>
                         <span class="text-base text-gray-500 font-medium">August 2022 - Present</span>
                     </div>
-                    <!-- SCHOOL TEXT COLOR CHANGE: text-indigo-600 -> text-[#212a31] -->
-                    <p class="text-[#212a31] font-medium mb-1">Arizona State University</p>
+                    <p class="text-[var(--color-primary-dark)] font-medium mb-1">Arizona State University</p>
                     <p class="text-base text-gray-600">Speciality: Hydrosystems Engineering | GPA: 4.0/4.0</p>
                 </div>
                 
-                <!-- Education Item 2: MS -->
                 <div class="mb-6 p-6 bg-white rounded-xl shadow-md">
                     <div class="flex justify-between items-start mb-2">
                         <h4 class="text-xl font-semibold text-gray-900">M.S. Civil, Environmental and Sustainable Engineering</h4>
                         <span class="text-base text-gray-500 font-medium">August 2020 - July 2022</span>
                     </div>
-                    <!-- SCHOOL TEXT COLOR CHANGE: text-indigo-600 -> text-[#212a31] -->
-                    <p class="text-[#212a31] font-medium mb-1">Arizona State University</p>
+                    <p class="text-[var(--color-primary-dark)] font-medium mb-1">Arizona State University</p>
                     <p class="text-base text-gray-600">Speciality: Hydrosystems Engineering | GPA: 4.0/4.0</p>
                 </div>
 
-                <!-- Education Item 3: B.Tech -->
                 <div class="p-6 bg-white rounded-xl shadow-md">
                     <div class="flex justify-between items-start mb-2">
                         <h4 class="text-xl font-semibold text-gray-900">B.Tech. Civil Engineering</h4>
                         <span class="text-base text-gray-500 font-medium">July 2016 - June 2020</span>
                     </div>
-                    <!-- SCHOOL TEXT COLOR CHANGE: text-indigo-600 -> text-[#212a31] -->
-                    <p class="text-[#212a31] font-medium mb-1">Manipal Institute of Technology, Manipal, India</p>
+                    <p class="text-[var(--color-primary-dark)] font-medium mb-1">Manipal Institute of Technology, Manipal, India</p>
                     <p class="text-base text-gray-600">GPA: 3.7/4.0</p>
                 </div>
             </section>
             
-            <!-- Honors section -->
             <section id="honors" class="container-section">
-                <!-- LARGER SUBHEADING FONT: text-3xl -->
-                <h3 class="text-3xl font-bold mb-6 text-gray-800">Key Honors and Awards</h3>
+                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Key Honors and Awards</h3>
 
-                <!-- Honors and Awards -->
                 <ul class="list-disc ml-6 text-gray-700 space-y-3 text-base">
                     <li>University Graduate Fellowship awarded by ASU (Jan 2024, Jan 2025)</li>
                     <li>Academic Scholarship 2024-2025 awarded by the Arizona Hydrological Society.</li>
@@ -413,16 +373,12 @@
 
     </main>
 
-    <!-- Footer -->
-    <!-- FOOTER COLOR REMAINS DARK GRAY: bg-gray-800 -->
     <footer class="bg-gray-800 text-white mt-12">
-        <!-- WIDENED CONTAINER: max-w-6xl -->
         <div class="max-w-6xl mx-auto p-6 text-center text-sm opacity-80">
             &copy; 2025 Nehal Ansh Srivastava. Hosted with GitHub Pages.
         </div>
     </footer>
     
-    <!-- JavaScript for Tab Functionality -->
     <script>
         /**
          * Function to handle tab switching
