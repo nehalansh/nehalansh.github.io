@@ -1,256 +1,369 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nehal Ansh Srivastava | Hydrosystems Engineering Researcher</title>
+    <title>Nehal Ansh Srivastava | Ph.D. Scholar</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;800&family=Ibarra+Real+Nova:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* New Font Families */
         :root {
-            /* Text/Body Font: Ibarra Real Nova (Serif) */
             --font-body: 'Ibarra Real Nova', serif;
-            /* Header/Display Font: Gabarito (Sans-Serif) */
-            --font-header: 'Josefin Sans', sans-serif;
-            
-            /* New Color Scheme */
-            --color-background: #F7F3EC; /* Light, Creamy Background */
-            --color-primary-dark: #4F4C4C; /* Dark Brown/Gray Text and Primary Elements */
+            --font-header: 'Gabarito', sans-serif;
+            --color-bg: #F7F3EC;
+            --color-accent:  #284B63;
         }
 
         body {
             font-family: var(--font-body);
-            background-color: var(--color-background);
-            color: var(--color-primary-dark); /* Set base text color */
+            background-color: var(--color-bg);
+            color: var(--color-accent);
         }
         
-        /* Apply Header Font to all Headings */
-        h1, h2, h3, h4 {
-            font-family: var(--font-header);
+        h1, h2, h3, h4, .nav-font { font-family: var(--font-header); }
+
+        .tab-link { position: relative; transition: all 0.3s ease; cursor: pointer; }
+        .tab-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 0; height: 2px;
+            background: #FBBF24; /* Amber-400 */
+            transition: width 0.3s;
+        }
+        .tab-link.active::after { width: 100%; }
+        .tab-link.active { color: #FBBF24; }
+        
+        .tab-content { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .container-section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-        /* Style for active tab link */
-        .tab-link.active {
-            border-bottom: 3px solid #f9fafb; /* White border for high contrast on dark header */
-            font-weight: 600;
-        }
+        .research-card:hover { transform: translateY(-2px); }
     </style>
 </head>
-<body class="text-[var(--color-primary-dark)]">
+<body class="antialiased">
 
-    <header class="bg-[var(--color-primary-dark)] text-white shadow-lg sticky top-0 z-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="py-4 flex flex-col md:flex-row justify-between items-center border-b border-gray-500">
-                <div class="text-center md:text-left mb-2 md:mb-0">
-                    <h1 class="text-5xl font-regular tracking-tight">
-                        NEHAL ANSH SRIVASTAVA
+    <header class="bg-[#284B63] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="py-6 flex flex-col md:flex-row justify-between items-center border-b border-gray-600/50">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-extrabold tracking-widest uppercase">
+                        Nehal Ansh Srivastava
                     </h1>
+                    <p class="nav-font text-base tracking-[0.3em] opacity-70 mt-1 uppercase">Ph.D. Scholar in Urban Climate and Infrastructure</p>
                 </div>
-                <div class="space-x-4 flex text-sm">
-                    <a href="mailto:nsrivas7@asu.edu" class="hover:underline opacity-90 hover:opacity-100">Email</a>
-                    <a href="https://www.linkedin.com/in/nehal-ansh-srivastava" target="_blank" class="hover:underline opacity-90 hover:opacity-100">LinkedIn</a>
-                    <a href="https://scholar.google.com/citations?user=uJaQHm4AAAAJ&hl=en" target="_blank" class="hover:underline opacity-90 hover:opacity-100">Google Scholar</a> 
+                <div class="flex space-x-6 text-[14px] uppercase tracking-widest font-bold">
+                    <a href="mailto:nsrivas7@asu.edu" class="hover:text-amber-400 transition">Email</a>
+                    <a href="https://linkedin.com/in/nehal-ansh-srivastava" target="_blank" class="hover:text-amber-400 transition">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=uJaQHm4AAAAJ&hl=en" target="_blank" class="hover:text-amber-400 transition">Google Scholar</a> 
                 </div>
             </div>
 
-            <nav class="flex space-x-4 sm:space-x-8 text-lg font-light">
-                <a href="#about" class="tab-link py-3 px-1 transition duration-150 active" data-tab="tab-home" onclick="showTab(event, 'tab-home')">About Me</a>
-                <a href="#research" class="tab-link py-3 px-1 transition duration-150" data-tab="tab-research" onclick="showTab(event, 'tab-research')">Research</a>
-                <a href="#presentations" class="tab-link py-3 px-1 transition duration-150" data-tab="tab-presentations" onclick="showTab(event, 'tab-presentations')">Presentations</a>
-                <a href="#education" class="tab-link py-3 px-1 transition duration-150" data-tab="tab-academia" onclick="showTab(event, 'tab-academia')">Education</a>
+            <nav class="flex space-x-8 text-lg uppercase tracking-widest font-semibold overflow-x-auto">
+                <button onclick="showTab('tab-home', this)" class="tab-link py-4 active">About</button>
+                <button onclick="showTab('tab-research', this)" class="tab-link py-4">Research</button>
+                <!-- <button onclick="showTab('tab-presentations', this)" class="tab-link py-4">Presentations</button> -->
+                <button onclick="showTab('tab-academia', this)" class="tab-link py-4">Education</button>
             </nav>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main class="max-w-6xl mx-auto px-6 py-12">
 
         <div id="tab-home" class="tab-content">
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">About Me</h2>
-
-            <section id="about" class="container-section border-b border-gray-200">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Overview</h3>
+            <div class="flex flex-col md:flex-row gap-16 items-start">
+                <div class="md:w-1/3 md:sticky md:top-36">
+                    <img src="https://webapp4.asu.edu/photo-ws/directory_photo/nsrivas7?size=medium" 
+                         class="w-full grayscale-0 transition duration-700 rounded-2xl shadow-xl border-4 border-white ring-1 ring-gray-200" 
+                         alt="Headshot">
+                    
+                    <!-- <div class="mt-8 space-y-4">
+                        <div class="p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="font-bold text-sm uppercase tracking-widest mb-3 border-b pb-2">Technical Core</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold uppercase rounded text-gray-600">Python</span>
+                                <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold uppercase rounded text-gray-600">SWMM</span>
+                                <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold uppercase rounded text-gray-600">PyPSA</span>
+                                <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold uppercase rounded text-gray-600">Machine Learning</span>
+                                <span class="px-2 py-1 bg-gray-100 text-[10px] font-bold uppercase rounded text-gray-600">Radar QPE</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
                 
-                <div class="flex flex-col md:flex-row md:space-x-8">
-                    <div class="md:w-1/4 mb-6 md:mb-0 flex justify-center">
-                        <img 
-                            src="https://webapp4.asu.edu/photo-ws/directory_photo/nsrivas7?size=medium&break=1761171068&blankImage2=1" 
-                            alt="Nehal Ansh Srivastava Professional Headshot"
-                            class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-white ring-4 ring-gray-300"
-                            onerror="this.onerror=null; this.src='https://placehold.co/192x192/cccccc/333333?text=Image+Error';"
-                        >
-                    </div>
+                <div class="md:w-2/3">
+                    <!-- <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">Engineering Urban Resilience for a Changing Climate</h2> -->
+                    <div class="prose prose-lg text-gray-700 leading-relaxed space-y-6 text-lg">
 
-                    <div class="md:w-3/4 text-xl leading-relaxed space-y-5">
                         <p>
                             I am a Ph.D. candidate in the School of Sustainable Engineering and the Built Environment at Arizona State University (ASU) specializing in Hydrosystems Engineering. My research focuses on different aspects of urban hydrology ranging from climate to infrastructure. It addresses a fundamental challenge in urban resilience: understanding how extreme weather events propagate through interconnected infrastructure systems that were designed to operate independently.
                         </p>
                         <p>
-                            I work at the intersection of climate science, infrastructure modeling, and resilience engineering, developing integrated approaches that capture the full spectrum of urban hydrological systems—from the climate variables during storms that cause damage and trigger cascading failures across power, stormwater, and transportation networks. My work challenges the traditional siloed approach to infrastructure design by creating mechanistic frameworks that represent the complex interdependencies between systems and their responses to spatiotemporally variable climate forcings. By combining high-resolution modeling of climate extremes with computational simulation of infrastructure behavior, I aim to transform how cities anticipate, prepare for, and adapt to the intensifying storms of a changing climate, ultimately contributing to more resilient and sustainable urban environments.
+                            I work in the domains of climate science, infrastructure modeling, and resilience engineering; developing integrated approaches that capture the full spectrum of urban hydrological systems—from the climate variables during storms that cause damage and trigger cascading failures across power, stormwater, and transportation networks. My work challenges the traditional siloed approach to infrastructure design by creating mechanistic frameworks that represent the complex interdependencies between systems and their responses to spatiotemporally variable climate forcings. By combining high-resolution modeling of climate extremes with computational simulation of infrastructure behavior, I aim to transform how cities anticipate, prepare for, and adapt to the intensifying storms of a changing climate, ultimately contributing to more resilient and sustainable urban environments.
                         </p>
                         <p>
                             I am affiliated with the <u><a href="https://labs.engineering.asu.edu/hydroclimate/">Hydroclimate & Infrastructure Research Lab</a></u> with Prof. Giuseppe Mascaro and the <u><a href="https://www.resilientinfrastructure.org/">Resilient Infrastructure Laboratory</a></u> with Prof. Mikhail Chester.
-
                         
-                        </p>
+                        <!-- <p>I am a Ph.D. candidate at <strong>Arizona State University</strong> specializing in Hydrosystems Engineering. My research addresses a fundamental challenge: understanding how extreme weather events propagate through interconnected infrastructure systems that were designed to operate independently.</p>
+                        
+                        <p>I work at the intersection of climate science, infrastructure modeling, and resilience engineering. By combining high-resolution modeling of climate extremes with computational simulation of infrastructure behavior, I aim to transform how cities anticipate and adapt to intensifying storms.</p>
+                        
+                        <div class="p-6 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl italic text-gray-800">
+                            "My work challenges the traditional siloed approach to infrastructure design by creating mechanistic frameworks that represent complex interdependencies."
+                        </div>
+
+                        <p>I am affiliated with the <a href="https://labs.engineering.asu.edu/hydroclimate/" class="text-amber-700 font-semibold underline decoration-amber-200 hover:decoration-amber-500 transition">Hydroclimate & Infrastructure Research Lab</a> and the <a href="https://www.resilientinfrastructure.org/" class="text-amber-700 font-semibold underline decoration-amber-200 hover:decoration-amber-500 transition">Resilient Infrastructure Laboratory</a>.</p> -->
                     </div>
                 </div>
-            </section>
-
-            <section id="skills" class="container-section border-b border-gray-200">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Skills & Technologies</h3>
-                
-                <div class="flex flex-wrap gap-3">
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Python</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">SWMM</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">PyPSA</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">MATLAB, R</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Cascading Failure Modeling</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Hydrologic-Hydraulic Modeling</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Statistical Modeling (L-moments, Kriging)</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Synthetic Spatiotemporal Storm Generation</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Machine Learning Algorithms</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Radar QPE Processing</span>
-                    <span class="bg-[#696464] text-[var(--color-background)] text-sm font-medium px-4 py-2 rounded-full shadow-inner">Resilience (Fail-Safe & Safe-to-Fail)</span>
-                </div>
-            </section>
+            </div>
         </div>
 
         <div id="tab-research" class="tab-content hidden">
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">Research</h2>
-
-            <section id="working-paper" class="container-section border-b border-gray-200">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Working Papers</h3>
-
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Optimizing Infrastructure Resilience Strategies for Storm-Vulnerable Systems</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mikhail Chester, Mattheus Porto, and Giuseppe Mascaro</p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">In Preparation.</span>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Implementing Fail-Safe and Safe-to-Fail design in mechanistic models of stormwater and power infrastructure to determine optimal placement and improve resilience using vulnerability indicators of service disruption.
-                    </p>
-                </div>
-
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Importance of High-Resolution Wind Gust Modeling to Improve Urban Flood Risk Assessment</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mikhail Chester, Mattheus Porto, and Giuseppe Mascaro</p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">In Preparation.</span>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Testing and identifying high-resolution wind gust interpolation methodology that leverages LiDAR-derived elevation, building footprints, and land cover data to overcome weather station limitations at infratsructure relevant heights for advancing the capability to model cascading infrastructure failures in cities.
-                    </p>
-                </div>
-
-            </section>
-
-            <section id="publications" class="container-section border-b border-gray-200">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Publications</h3>
-
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">A Safe Operating Space for Cities: Navigating Tensions Between Emissions Mitigation, Climate Adaptation, and Well-Being In Urban Transformation</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: J. Robert Wolfinbarger, Irfan Batur, Mattheus Porto, <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Eleanor M. Hennessy, Sneha Roy, Mindy Kimball, Ryan M. Sparks, Sam Fletcher, and Mikhail V. Chester </p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">Under Review.</span>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Proposes a semi-theoretical framework for cities to navigate the tensions between mitigation, adaptation and well being as they manage multiple climate change impacts.
-                    </p>
-                </div>
-
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">A coupled stormwater-power model for the simulation of cascading infrastructure failures: An application in Phoenix, AZ</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">Under Review.</span>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Developed and applied the first integrated SWMM-PyPSA modeling platform to simulate how wind-induced damage to power infrastructure components propagates and causes cascading failures in urban infrastructure.
-                    </p>
-                </div>
-                
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Expanding infrastructure resilience horizons: Safe-to-Fail and Social-Ecological-Technological dynamics for requisite variety</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: Mattheus Porto, Mikhail Chester, Yeowon Kim, Giuseppe Mascaro, and <span class="font-bold"><u>Nehal Ansh Srivastava</u></span></p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">Sustainability Science, 2025.</span>
-                        <a href="https://doi.org/10.1007/s11625-025-01779-4" target="_blank" class="text-blue-600 hover:underline">(DOI: 10.1007/s11625-025-01779-4)</a>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Integrates Safe-to-Fail design theory with the Social-Ecological-Technological Systems framework to create a practical failure-management approach that diversifies infrastructure adaptation strategies beyond technology-centered solutions, while identifying necessary governance changes—including cross-departmental collaboration, stakeholder engagement, and new tradeoff navigation methods—to implement this approach across different infrastructure types and geographical contexts.
-                    </p>
-                </div>
-
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Changing boundaries, distributed control, and implications for transportation sustainability</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: Eleanor M. Hennessy, J. Robert Wolfinbarger, Irfan Batur, <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mattheus Porto, Gabriel I. Cotlier, Madison Horgan, Ian Searles, Ryan M. Sparks and Mikhail V. Chester</p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">npj Sustainable Mobility and Transport, 2024.</span>
-                        <a href="https://doi.org/10.1038/s44333-024-00016-2" target="_blank" class="text-blue-600 hover:underline">(DOI: 10.1038/s44333-024-00016-2)</a>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Explored how decentralized control strategies in complex urban systems, like transportation networks, affect overall system sustainability and operational efficiency under changing conditions.
-                    </p>
-                </div>
-
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Improving the utility of weather radar for the spatial frequency analysis of extreme precipitation</h4>
-                    <p class="text-base text-gray-600 mb-1">Authors: <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro</p>
-                    <p class="text-base text-gray-600 mb-3">
-                        <span class="font-medium italic">Journal of Hydrology, 2023.</span> 
-                        <a href="https://doi.org/10.1016/j.jhydrol.2023.129902" target="_blank" class="text-blue-600 hover:underline">(DOI: 10.1016/j.jhydrol.2023.129902)</a>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed text-base">
-                        Key Takeaway: Developed a robust statistical framework to use high-resolution radar data (QPE) for improving the accuracy of Intensity-Duration-Frequency (IDF) curves, which are essential for resilient urban stormwater planning.
-                    </p>
-                </div>
-
-            </section>
+            <h2 class="text-3xl font-bold mb-10 tracking-tight">Research & Publications</h2>
             
-            <section id="projects" class="container-section">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Additional Research & Projects</h3>
+            <h3 class="text-lg uppercase tracking-[0.3em] font-black text-gray-400 mb-6">Working Papers</h3>
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <span class="text-[12px] font-black bg-amber-100 text-amber-700 px-2 py-1 rounded uppercase tracking-widest">In Preparation</span>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">Optimizing infrastructure resilience for storm-vulnerable systems</h4>
+                    <p class="text-base text-gray-500 mb-4 font-medium italic">Nehal Ansh Srivastava, Mikhail Chester, Mattheus Porto, Giuseppe Mascaro</p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Key Takeaway: Implementing Fail-Safe and Safe-to-Fail design in mechanistic models of stormwater and power infrastructure to determine optimal placement and improve resilience.</p>
+                </div>
+            </div>
+            
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <span class="text-[12px] font-black bg-amber-100 text-amber-700 px-2 py-1 rounded uppercase tracking-widest">In Preparation</span>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">Importance of high-resolution wind gust modeling to improve urban flood risk assessment</h4>
+                    <p class="text-base text-gray-500 mb-4 font-medium italic">Nehal Ansh Srivastava, Mikhail Chester, Mattheus Porto, Giuseppe Mascaro</p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Key Takeaway: Testing and identifying high-resolution wind gust interpolation methodology that leverages LiDAR-derived elevation, building footprints, and land cover data to overcome weather station limitations at infratsructure relevant heights for advancing the capability to model cascading infrastructure failures in cities.</p>
+                </div>
+            </div>
 
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Uncertainty Analysis of Performance of Stormwater Infrastructure</h4>
-                    <p class="text-gray-700 leading-relaxed mb-3">
-                        Analyzed stormwater infrastructure behavior using an SWMM model in response to projected deep uncertainties, conducting robustness and flexibility analysis via a scenario development approach.
-                    </p>
-                </div>
+            <!-- ------------------------------------------ -->
 
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Analysis of Floodplain Accuracy using Remotely Sensed Data</h4>
-                    <p class="text-gray-700 leading-relaxed mb-3">
-                        Utilized areal imagery from Planet for classification of flooded area using supervised and unsupervised classification algorithms, comparing performance against the FEMA floodplain dataset.
-                    </p>
+            <h3 class="text-lg uppercase tracking-[0.3em] font-black text-gray-400 mb-6">Publications</h3>
+            <!-- <div class="grid gap-6"> -->
+
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <span class="text-[12px] font-black bg-blue-100 text-blue-700 px-2 py-1 rounded uppercase tracking-widest">Under Review</span>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">A safe operating space for cities: Navigating tensions between emissions mitigation, climate adaptation, and well-being in urban transformation</h4>
+                    <p class="text-base text-gray-500 mb-4">J. Robert Wolfinbarger, Irfan Batur, Mattheus Porto, <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Eleanor M. Hennessy, Sneha Roy, Mindy Kimball, Ryan M. Sparks, Sam Fletcher, and Mikhail V. Chester</p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Proposes a semi-theoretical framework for cities to navigate the tensions between mitigation, adaptation and well being as they manage multiple climate change impacts.</p>
                 </div>
-                
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Analysis of Impact of Urbanization on Runoff Generation</h4>
-                    <p class="text-gray-700 leading-relaxed mb-3">
-                        Analyzed changes in runoff quantity in a residential area developed over 20 years by developing a KINEROS hydrologic model.
-                    </p>
+            </div>
+
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <span class="text-[12px] font-black bg-blue-100 text-blue-700 px-2 py-1 rounded uppercase tracking-widest">Under Review</span>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">A coupled stormwater-power model for the simulation of cascading infrastructure failures: An application in Phoenix, AZ</h4>
+                    <p class="text-base text-gray-500 mb-4"><span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Ryan Sparks, Mikhail Chester, Mattheus Porto, Nathan Johnson, and Giuseppe Mascaro</p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Developed and applied the first integrated SWMM-PyPSA modeling platform called PSI-Cascade to simulate how wind-induced damage to power infrastructure components propagates and causes cascading failures in urban infrastructure.</p>
                 </div>
-                
-                <div class="mb-8 p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">MATLAB Software Development to Analyze Aquifer Characteristics</h4>
-                    <p class="text-700 leading-relaxed mb-3">
-                        Developed a generalized MATLAB-based software to derive aquifer characteristics through numerical solutions of theoretical equations using data from pumping tests.
-                    </p>
+            </div>
+
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[12px] font-black bg-green-100 text-green-700 px-2 py-1 rounded uppercase tracking-widest">Published 2025</span>
+                        <a href="https://doi.org/10.1007/s11625-025-01779-4" target="_blank" class="text-amber-600 hover:text-amber-800 font-bold text-xs uppercase tracking-tighter">View DOI &rarr;</a>
+                    </div>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">Expanding infrastructure resilience horizons: Safe-to-Fail and Social-Ecological-Technological dynamics</h4>
+                    <p class="text-base text-gray-500 mb-4">Mattheus Porto, Mikhail Chester, Yeowon Kim, Giuseppe Mascaro, and <span class="font-bold"><u>Nehal Ansh Srivastava</u></span> | <span class="italic">Sustainability Science</span></p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Integrates Safe-to-Fail design theory with the SETS framework to create a practical failure-management approach that diversifies infrastructure adaptation.</p>
                 </div>
-            </section>
+            </div>
+
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[12px] font-black bg-green-100 text-green-700 px-2 py-1 rounded uppercase tracking-widest">Published 2024</span>
+                        <a href="https://doi.org/10.1038/s44333-024-00016-2" target="_blank" class="text-amber-600 hover:text-amber-800 font-bold text-xs uppercase tracking-tighter">View DOI &rarr;</a>
+                    </div>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">Changing boundaries, distributed control, and implications for transportation sustainability</h4>
+                    <p class="text-base text-gray-500 mb-4">Eleanor M. Hennessy, J. Robert Wolfinbarger, Irfan Batur, <span class="font-bold"><u>Nehal Ansh Srivastava</u></span>, Mattheus Porto, Gabriel I. Cotlier, Madison Horgan, Ian Searles, Ryan M. Sparks and Mikhail V. Chester | <span class="italic">npj Sustainable Mobility and Transport</span></p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Explored how decentralized control strategies in complex urban systems, like transportation networks, affect overall system sustainability and operational efficiency under changing conditions.</p>
+                </div>
+            </div>
+
+            <div class="grid gap-6 mb-12">
+                <div class="research-card group p-8 bg-white border border-gray-200 rounded-2xl hover:border-amber-400 transition-all duration-300 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <span class="text-[12px] font-black bg-green-100 text-green-700 px-2 py-1 rounded uppercase tracking-widest">Published 2023</span>
+                        <a href="https://doi.org/10.1016/j.jhydrol.2023.129902" target="_blank" class="text-amber-600 hover:text-amber-800 font-bold text-xs uppercase tracking-tighter">View DOI &rarr;</a>
+                    </div>
+                    <h4 class="text-2xl font-bold mt-4 mb-2 group-hover:text-amber-900 transition">Improving the utility of weather radar for the spatial frequency analysis of extreme precipitation</h4>
+                    <p class="text-base text-gray-500 mb-4"><span class="font-bold"><u>Nehal Ansh Srivastava</u></span> and Giuseppe Mascaro | <span class="italic">Journal of Hydrology</span></p>
+                    <p class="text-gray-600 text-lg leading-relaxed">Developed a robust statistical framework to use high-resolution radar data (QPE) for improving the accuracy of Intensity-Duration-Frequency (IDF) curves, which are essential for resilient urban stormwater planning.</p>
+                </div>
+            </div>
         </div>
-        
-        <div id="tab-presentations" class="tab-content hidden">
+
+        <!-- <div id="tab-presentations" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-10 tracking-tight">Conference Presentations</h2>
+            <div class="space-y-4">
+                <div class="relative pl-8 border-l-2 border-gray-200 space-y-8">
+                    <div class="relative">
+                        <div class="absolute -left-[41px] top-1 w-4 h-4 bg-amber-400 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold text-lg">High-Resolution Climate Modeling to Improve Urban Flood Risk Assessment</h4>
+                        <p class="text-gray-500 text-sm italic">Poster Presentation, ASU Flow | Tempe, AZ | Oct 2025</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] top-1 w-4 h-4 bg-gray-300 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold text-lg">Modeling Cascading Failures of Coupled Stormwater and Power Urban Infrastructure</h4>
+                        <p class="text-gray-500 text-sm italic">Oral Presentation, AGU Fall Meeting | Washington, D.C. | Dec 2024</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] top-1 w-4 h-4 bg-amber-400 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold text-lg">Utility of Radar QPE for characterization of extreme precipitation</h4>
+                        <p class="text-gray-500 text-sm italic">Oral Presentation, EGU General Assembly | Vienna, Austria | May 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div id="tab-academia" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-10 tracking-tight">Academic History</h2>
+            <div class="grid gap-6">
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">Ph.D. Civil, Environmental and Sustainable Engineering</h4>
+                        <p class="text-lg text-amber-700 font-semibold mb-2">Arizona State University</p>
+                        <p class="text-gray-600">Specialty: Hydrosystems Engineering</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2022 — Present</div>
+                </div>
+
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">M.S. Civil, Environmental and Sustainable Engineering</h4>
+                        <p class="text-lg text-amber-700 font-semibold mb-2">Arizona State University</p>
+                        <p class="text-gray-600">Specialty: Hydrosystems Engineering</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2020 — 2022</div>
+                </div>
+
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">B.Tech. Civil Engineering</h4>
+                        <p class="text-lg text-amber-700 font-semibold mb-2">Manipal Institute of Technology, India</p>
+                        <p class="text-gray-600">Academic Excellence Award</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2016 — 2020</div>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mt-16 mb-8 tracking-tight">Honors & Awards</h3>
+            <div class="grid gap-6">
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">University Graduate Fellowship</h4>
+                        <p class="text-gray-600">School of Sustainable Engineering and the Built Environment at Arizona State University</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2024, 2025, 2026</div>
+                </div>
+
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">Academic Scholarship</h4>
+                        <p class="text-gray-600">Arizona Hydrological Society</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2024-2025</div>
+                </div>
+
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">Outstanding Poster Presentation</h4>
+                        <p class="text-gray-600">Flow Event organized by Arizona State University and Arizona Hydrological Society</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2023</div>
+                </div>
+
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">Engineering Graduate Fellowship</h4>
+                        <p class="text-gray-600">Fulton Schools of Engineering at Arizona State University</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2021</div>
+                </div>
+
+                <div class="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold">Academic Excellence Award</h4>
+                        <p class="text-gray-600">Manipal Institute of Technology, Manipal, India</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-gray-400 font-bold text-lg tracking-widest uppercase">2018, 2019</div>
+                </div>
+            </div>
+            <!-- <ul class="grid md:grid-cols-2 gap-4">
+                <li class="p-4 bg-gray-50 rounded-lg border border-gray-100 flex items-start gap-3">
+                    <span class="text-amber-500 text-xl">★</span>
+                    <span class="text-gray-700 text-sm">University Graduate Fellowship, ASU (2024, 2025)</span>
+                </li>
+                <li class="p-4 bg-gray-50 rounded-lg border border-gray-100 flex items-start gap-3">
+                    <span class="text-amber-500 text-xl">★</span>
+                    <span class="text-gray-700 text-sm">Arizona Hydrological Society Scholarship (2024-2025)</span>
+                </li>
+                <li class="p-4 bg-gray-50 rounded-lg border border-gray-100 flex items-start gap-3">
+                    <span class="text-amber-500 text-xl">★</span>
+                    <span class="text-gray-700 text-sm">Best Poster Presentation, ASU Flow (2023)</span>
+                </li>
+            </ul>
+        </div> -->
+
+    </main>
+
+    <footer class="bg-[#284B63] text-white/40 py-16 mt-20 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-[10px] uppercase tracking-[0.4em] mb-4">Built with Precision & Tailwind CSS</p>
+            <p class="text-xs italic">&copy; 2026 Nehal Ansh Srivastava • Hosted via GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabId, el) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active style from all buttons
+            document.querySelectorAll('.tab-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show current tab
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            // Set button to active
+            el.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+<div id="tab-presentations" class="tab-content hidden">
             <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">Presentations</h2>
 
             <section id="conference-presentations" class="container-section border-b border-gray-200">
@@ -338,110 +451,4 @@
                     </p>
                 </div>
             </section>
-        </div>
-
-        
-        <div id="tab-academia" class="tab-content hidden">
-            <h2 class="text-4xl font-bold pt-12 pb-2 text-[var(--color-primary-dark)]">Education</h2>
-
-            <section id="education" class="container-section border-b border-gray-200">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Academic History</h3>
-                
-                <div class="mb-6 p-6 bg-white rounded-xl shadow-md">
-                    <div class="flex justify-between items-start mb-2">
-                        <h4 class="text-xl font-semibold text-gray-900">Ph.D. Civil, Environmental and Sustainable Engineering</h4>
-                        <span class="text-base text-gray-500 font-medium">August 2022 - Present</span>
-                    </div>
-                    <p class="text-[var(--color-primary-dark)] font-medium mb-1">Arizona State University</p>
-                    <p class="text-base text-gray-600">Speciality: Hydrosystems Engineering | GPA: 4.0/4.0</p>
-                </div>
-                
-                <div class="mb-6 p-6 bg-white rounded-xl shadow-md">
-                    <div class="flex justify-between items-start mb-2">
-                        <h4 class="text-xl font-semibold text-gray-900">M.S. Civil, Environmental and Sustainable Engineering</h4>
-                        <span class="text-base text-gray-500 font-medium">August 2020 - July 2022</span>
-                    </div>
-                    <p class="text-[var(--color-primary-dark)] font-medium mb-1">Arizona State University</p>
-                    <p class="text-base text-gray-600">Speciality: Hydrosystems Engineering | GPA: 4.0/4.0</p>
-                </div>
-
-                <div class="p-6 bg-white rounded-xl shadow-md">
-                    <div class="flex justify-between items-start mb-2">
-                        <h4 class="text-xl font-semibold text-gray-900">B.Tech. Civil Engineering</h4>
-                        <span class="text-base text-gray-500 font-medium">July 2016 - June 2020</span>
-                    </div>
-                    <p class="text-[var(--color-primary-dark)] font-medium mb-1">Manipal Institute of Technology, Manipal, India</p>
-                    <p class="text-base text-gray-600">GPA: 3.7/4.0</p>
-                </div>
-            </section>
-            
-            <section id="honors" class="container-section">
-                <h3 class="text-3xl font-bold mb-6 text-[var(--color-primary-dark)]">Key Honors and Awards</h3>
-
-                <ul class="list-disc ml-6 text-gray-700 space-y-3 text-base">
-                    <li>University Graduate Fellowship awarded by ASU (Jan 2024, Jan 2025)</li>
-                    <li>Academic Scholarship 2024-2025 awarded by the Arizona Hydrological Society.</li>
-                    <li>Outstanding Poster Presentation in the ASU Flow Event (Nov 2023).</li>
-                    <li>Engineering Graduate Fellowship awarded by the Fulton Schools of Engineering at Arizona State University (June 2021).</li>
-                    <li>Academic Excellence Award at Manipal Institute of Technology (2018-19 and 2017-18).</li>
-                </ul>
-            </section>
-        </div>
-
-    </main>
-
-    <footer class="bg-gray-800 text-white mt-12">
-        <div class="max-w-6xl mx-auto p-6 text-center text-sm opacity-80">
-            &copy; 2025 Nehal Ansh Srivastava. Hosted with GitHub Pages.
-        </div>
-    </footer>
-    
-    <script>
-        /**
-         * Function to handle tab switching
-         * Hides all content divs and shows the one corresponding to the clicked tab link.
-         * @param {Event} event - The click event
-         * @param {string} tabId - The ID of the content div to show (e.g., 'tab-home')
-         */
-        function showTab(event, tabId) {
-            event.preventDefault();
-
-            // 1. Hide all tab content divs
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-
-            // 2. Remove 'active' class from all tab links
-            document.querySelectorAll('.tab-link').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // 3. Show the selected content div
-            const selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.remove('hidden');
-                
-                // Scroll to the top of the content area for a clean tab switch feel
-                const mainContent = document.querySelector('main');
-                if (mainContent) {
-                    mainContent.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-            
-            // 4. Add 'active' class to the clicked tab link
-            event.currentTarget.classList.add('active');
-        }
-
-        // Set the active tab on initial load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Find the current active tab link and simulate a click to apply styling/visibility
-            const activeLink = document.querySelector('.tab-link.active');
-            if (activeLink) {
-                const tabId = activeLink.getAttribute('data-tab');
-                document.getElementById(tabId)?.classList.remove('hidden');
-            }
-        });
-    </script>
-
-</body>
-</html>
+        </div> -->
